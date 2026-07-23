@@ -1,0 +1,19 @@
+:root{
+  --route-blue: #0B3D91;
+  --action-blue: #1B5FE0;
+  --pass-green: #167F3D;
+  --bright-green: #1FAE59;
+  --sign-white: #FCFDFF;
+  --ink: #0E1A2B;
+  --mist: #EEF2F8;
+  --amber: #E0A100;
+}
+body{font-family:'Inter',sans-serif; background:var(--sign-white); color:var(--ink);}
+.font-display{font-family:'Overpass',sans-serif;}
+.legal-content h2{font-family:'Overpass',sans-serif; font-weight:800; font-size:1.35rem; margin-top:2.2rem; margin-bottom:0.8rem; color:var(--ink);}
+.legal-content h3{font-family:'Overpass',sans-serif; font-weight:700; font-size:1.05rem; margin-top:1.4rem; margin-bottom:0.5rem;}
+.legal-content p{margin-bottom:0.9rem; line-height:1.7; color:#374151;}
+.legal-content ul{list-style:disc; padding-left:1.4rem; margin-bottom:0.9rem; line-height:1.7; color:#374151;}
+.legal-content ul li{margin-bottom:0.35rem;}
+.legal-content a{color:var(--route-blue); text-decoration:underline;}
+.legal-content strong{color:var(--ink);}

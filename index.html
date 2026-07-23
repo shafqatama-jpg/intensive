@@ -36,13 +36,11 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 
-<!-- Google Tag Manager — reusing the container already live on kingsdrivingcentre.co.uk (GTM-52MHG4B6)
-     so this page reports into the same account. Swap if this should track separately. -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-52MHG4B6');</script>
+<!-- Google Tag Manager (GTM-52MHG4B6, reusing the container already live on kingsdrivingcentre.co.uk) and the
+     Elfsight widgets below are NOT loaded unconditionally — consent.js only loads them after the visitor
+     accepts cookies on the banner, or immediately if they've already accepted on a previous visit. -->
 
 <script type="application/ld+json" id="ldjson-localbusiness">
 {
@@ -63,7 +61,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     "addressRegion": "Surrey",
     "addressCountry": "GB"
   },
-  "areaServed": ["Tolworth","Surbiton","Chessington","Worcester Park","Kingston upon Thames","Berrylands","Hook","New Malden","Malden Manor","Norbiton","Motspur Park","Raynes Park","Wimbledon","South Wimbledon","Thames Ditton","Long Ditton","Claygate","Esher","Ewell","Epsom","Stoneleigh","North Cheam","Morden","Sutton","Hersham"],
+  "areaServed": ["Tolworth","Surbiton","Chessington","Worcester Park","Kingston upon Thames","Berrylands","Hook","New Malden","Malden Manor","Norbiton","Motspur Park","Raynes Park","Wimbledon","South Wimbledon","Thames Ditton","Long Ditton","Claygate","Esher","Ewell","Epsom","Stoneleigh","North Cheam","Morden","Sutton","Hersham","Putney"],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+442031431718",
@@ -146,6 +144,10 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   }
   .course-card{ transition: transform .25s ease, box-shadow .25s ease; }
   .course-card:hover{ transform: translateY(-6px); box-shadow: 0 20px 40px -18px rgba(11,61,145,0.35); }
+  .lang-chip{ transition: transform .2s ease, box-shadow .2s ease; cursor:default; }
+  .lang-chip:hover{ transform: rotate(0deg) scale(1.08) !important; box-shadow: 0 14px 30px -10px rgba(0,0,0,0.35); }
+  .lang-ring{ animation: slowSpin 40s linear infinite; }
+  @keyframes slowSpin{ to{ transform: rotate(360deg); } }
   .float-btn{ box-shadow: 0 10px 24px -8px rgba(0,0,0,0.35); }
   .mile-label{ font-family:'Overpass',sans-serif; letter-spacing:0.02em; }
   .hero-photo-frame{ box-shadow: 0 30px 60px -20px rgba(0,0,0,0.45); }
@@ -153,14 +155,23 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .modal-overlay{ background: rgba(14,26,43,0.6); backdrop-filter: blur(4px); }
 
   @media (prefers-reduced-motion: reduce){
-    .route-svg path.route-line, .route-svg .pulse-dot{ animation: none !important; }
+    .route-svg path.route-line, .route-svg .pulse-dot, .lang-ring{ animation: none !important; }
   }
 </style>
 </head>
 <body class="antialiased">
-<!-- Elfsight platform script — loaded once, powers both the Google Reviews and YouTube Gallery widgets below -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52MHG4B6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>
+  // Elfsight (Google Reviews + YouTube Gallery widgets further down this page) only loads
+  // once cookies are accepted — see consent.js for the actual gate.
+  window.kdcLoadOptional = function(){
+    if(window.__elfsightLoaded) return;
+    window.__elfsightLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://elfsightcdn.com/platform.js';
+    s.async = true;
+    document.body.appendChild(s);
+  };
+</script>
 
 <!-- ================= HEADER ================= -->
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
@@ -176,7 +187,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
       <nav class="hidden lg:flex items-center gap-6 text-[13px] font-bold tracking-wide text-[var(--ink)]">
         <a href="#courses" class="hover:text-[var(--pass-green)] transition">COURSES &amp; PRICES</a>
-        <a href="#gallery" class="hover:text-[var(--pass-green)] transition">GALLERY</a>
+        <a href="resources.html" class="hover:text-[var(--pass-green)] transition">LEARNER RESOURCES</a>
         <a href="#languages" class="hover:text-[var(--pass-green)] transition">LANGUAGES</a>
         <a href="#areas" class="hover:text-[var(--pass-green)] transition">AREAS WE COVER</a>
         <a href="#reviews" class="hover:text-[var(--pass-green)] transition">REVIEWS</a>
@@ -199,6 +210,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100">
     <nav class="flex flex-col px-5 py-3 text-sm font-bold text-[var(--ink)]">
       <a href="#courses" class="py-2.5 border-b border-slate-100">Courses &amp; Prices</a>
+      <a href="resources.html" class="py-2.5 border-b border-slate-100">Learner Resources</a>
       <a href="#why" class="py-2.5 border-b border-slate-100">Why Us</a>
       <a href="#how" class="py-2.5 border-b border-slate-100">How It Works</a>
       <a href="#languages" class="py-2.5 border-b border-slate-100">Languages</a>
@@ -373,6 +385,36 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   </div>
 </section>
 
+<!-- ================= WHY INTENSIVE ================= -->
+<section class="py-16 sm:py-20" style="background:var(--route-blue)">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[0.7fr_1.3fr] gap-10 items-center">
+    <div class="text-center lg:text-left">
+      <div class="font-display text-white leading-none" style="font-weight:900;">
+        <span class="block text-6xl sm:text-7xl">48<span class="text-3xl sm:text-4xl">/100</span></span>
+      </div>
+      <p class="text-white/70 text-sm mt-2">practical tests were failed in Great Britain in June 2026 <span class="text-white/50">(DVSA)</span></p>
+    </div>
+    <div>
+      <h2 class="font-display text-2xl sm:text-3xl text-white" style="font-weight:900;">That's exactly why we don't do one-lesson-a-week.</h2>
+      <p class="text-white/80 mt-3 max-w-xl">A weekly hour is easy to half-forget by the next lesson. An intensive course compresses everything into consecutive days, backed by instructors who know the Tolworth and Morden test routes inside out.</p>
+      <div class="grid sm:grid-cols-3 gap-3 mt-6">
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-white font-bold text-sm">Local route mastery</p>
+          <p class="text-white/70 text-xs mt-1">Instructors who know every roundabout your examiner will use.</p>
+        </div>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-white font-bold text-sm">Nothing forgotten</p>
+          <p class="text-white/70 text-xs mt-1">Consecutive days beat one hour a week for retention.</p>
+        </div>
+        <div class="glass-card rounded-xl p-4">
+          <p class="text-white font-bold text-sm">A real mock test</p>
+          <p class="text-white/70 text-xs mt-1">Before the DVSA one, so test day isn't the first time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= WHY CHOOSE US ================= -->
 <section id="why" class="py-20 sm:py-28 bg-[var(--mist)]">
   <div class="max-w-7xl mx-auto px-5 sm:px-8">
@@ -382,35 +424,56 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         <h2 class="font-display text-3xl sm:text-4xl mt-2" style="font-weight:900;">Every learner is different. We adapt to you.</h2>
         <p class="mt-4 text-slate-600 max-w-md">Nervous driver, complete beginner, returning after a bad experience elsewhere, or working through a specific learning difficulty — we teach learners of every ability and background, in manual or automatic, at your pace.</p>
       </div>
-      <div class="glass-card-light rounded-3xl p-3 sm:p-4 shadow-xl" aria-hidden="true">
-        <svg viewBox="0 0 700 380" class="w-full h-auto rounded-2xl" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <clipPath id="windscreen"><path d="M92,0 L608,0 L568,380 L132,380 Z"/></clipPath>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1B5FE0"/><stop offset="100%" stop-color="#CFE7FF"/></linearGradient>
-          </defs>
-          <path d="M0,0 L92,0 L132,380 L0,380 Z" fill="#0E1A2B"/>
-          <path d="M700,0 L608,0 L568,380 L700,380 Z" fill="#0E1A2B"/>
-          <g clip-path="url(#windscreen)">
-            <rect x="0" y="0" width="700" height="230" fill="url(#sky)"/>
-            <ellipse cx="180" cy="200" rx="90" ry="26" fill="#167F3D" opacity="0.5"/>
-            <ellipse cx="520" cy="205" rx="110" ry="30" fill="#167F3D" opacity="0.45"/>
-            <rect x="0" y="215" width="700" height="165" fill="#B9C2CE"/>
-            <path d="M350,215 L250,380 L120,380 Z" fill="#8B96A3"/>
-            <path d="M350,215 L450,380 L580,380 Z" fill="#8B96A3"/>
-            <path d="M350,215 L250,380 L450,380 Z" fill="#9FA9B5"/>
-            <g fill="#F4F7FB"><rect x="345" y="240" width="10" height="18"/><rect x="338" y="275" width="12" height="22"/><rect x="328" y="318" width="16" height="28"/><rect x="312" y="360" width="20" height="20"/></g>
-            <circle cx="350" cy="245" r="34" fill="#8B96A3" stroke="#F4F7FB" stroke-width="4"/>
-            <circle cx="350" cy="245" r="16" fill="#167F3D"/>
-            <g transform="translate(140,120)"><rect width="70" height="46" rx="4" fill="#0B3D91" stroke="white" stroke-width="2"/><path d="M12,23 h30 M32,15 l10,8 -10,8" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-            <g transform="translate(500,130)"><rect width="60" height="40" rx="4" fill="#167F3D" stroke="white" stroke-width="2"/><text x="30" y="26" text-anchor="middle" fill="white" font-size="14" font-weight="800" font-family="Arial">A3</text></g>
+      <div class="flex items-center justify-center" aria-hidden="true">
+        <svg viewBox="0 0 700 500" class="w-full max-w-[520px] h-auto" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+          <g stroke="#C7D0DC" stroke-width="2" stroke-dasharray="4 6">
+            <line x1="350" y1="250" x2="350" y2="75"/>
+            <line x1="350" y1="250" x2="516" y2="196"/>
+            <line x1="350" y1="250" x2="453" y2="392"/>
+            <line x1="350" y1="250" x2="247" y2="392"/>
+            <line x1="350" y1="250" x2="184" y2="196"/>
           </g>
-          <path d="M92,0 L608,0 L568,380 L132,380 Z" fill="none" stroke="#0E1A2B" stroke-width="4"/>
-          <g transform="translate(310,18)"><rect width="80" height="20" rx="8" fill="#0E1A2B"/></g>
-          <circle cx="350" cy="380" r="130" fill="none" stroke="#0E1A2B" stroke-width="24"/>
-          <circle cx="350" cy="380" r="130" fill="none" stroke="#F4F7FB" stroke-width="3"/>
-          <circle cx="350" cy="380" r="34" fill="#0E1A2B"/>
-          <g transform="translate(333,350)"><rect width="34" height="24" rx="2" fill="#ffffff"/><text x="17" y="18" font-family="Arial" font-weight="900" font-size="16" fill="#D6293E" text-anchor="middle">L</text></g>
-          <g fill="#0E1A2B"><rect x="200" y="300" width="56" height="36" rx="18" transform="rotate(-20 228 318)"/><rect x="444" y="300" width="56" height="36" rx="18" transform="rotate(20 472 318)"/></g>
+
+          <g>
+            <circle cx="350" cy="75" r="60" fill="var(--pass-green)"/>
+            <g transform="translate(335,50)" stroke="white" stroke-width="2.4" fill="none"><circle cx="7" cy="17" r="7"/><circle cx="23" cy="17" r="7"/><path d="M2,17H0v-4l2-5h9l3 5h2v4h-2M6,8V4h4v4"/></g>
+            <text x="350" y="97" text-anchor="middle" fill="white" font-weight="800" font-size="12">MANUAL &amp;</text>
+            <text x="350" y="111" text-anchor="middle" fill="white" font-weight="800" font-size="12">AUTOMATIC</text>
+          </g>
+
+          <g>
+            <circle cx="516" cy="196" r="60" fill="var(--action-blue)"/>
+            <g transform="translate(501,171)" stroke="white" stroke-width="2.2" fill="none"><circle cx="14" cy="14" r="13"/><ellipse cx="14" cy="14" rx="5.5" ry="13"/><line x1="1" y1="14" x2="27" y2="14"/></g>
+            <text x="516" y="218" text-anchor="middle" fill="white" font-weight="800" font-size="12">5</text>
+            <text x="516" y="232" text-anchor="middle" fill="white" font-weight="800" font-size="11">LANGUAGES</text>
+          </g>
+
+          <g>
+            <circle cx="453" cy="392" r="60" fill="var(--amber)"/>
+            <path transform="translate(438,367)" d="M14,26 C4,18 -2,10 4,4 C8,0 14,2 14,8 C14,2 20,0 24,4 C30,10 24,18 14,26Z" fill="var(--ink)"/>
+            <text x="453" y="416" text-anchor="middle" fill="var(--ink)" font-weight="800" font-size="12">ALL</text>
+            <text x="453" y="430" text-anchor="middle" fill="var(--ink)" font-weight="800" font-size="12">ABILITIES</text>
+          </g>
+
+          <g>
+            <circle cx="247" cy="392" r="60" fill="var(--route-blue)"/>
+            <path transform="translate(232,365)" d="M15,0 C7,0 0,7 0,15 C0,26 15,42 15,42 S30,26 30,15 C30,7 23,0 15,0Z M15,21 a6,6 0 1 1 0,-12 a6,6 0 0 1 0,12Z" fill="white" fill-rule="evenodd"/>
+            <text x="247" y="416" text-anchor="middle" fill="white" font-weight="800" font-size="12">LOCAL</text>
+            <text x="247" y="430" text-anchor="middle" fill="white" font-weight="800" font-size="12">ROUTES</text>
+          </g>
+
+          <g>
+            <circle cx="184" cy="196" r="60" fill="var(--bright-green)"/>
+            <path transform="translate(167,177)" d="M17,0 21,11 33,11 23,18 27,30 17,23 7,30 11,18 1,11 13,11Z" fill="white"/>
+            <text x="184" y="222" text-anchor="middle" fill="white" font-weight="800" font-size="12">5.0</text>
+            <text x="184" y="236" text-anchor="middle" fill="white" font-weight="800" font-size="11">RATED</text>
+          </g>
+
+          <circle cx="350" cy="250" r="95" fill="var(--ink)"/>
+          <circle cx="350" cy="250" r="95" fill="none" stroke="var(--amber)" stroke-width="3"/>
+          <path transform="translate(322,205)" d="M28,0 56,14 v28 c0,28 -19,48 -28,54 c-9,-6 -28,-26 -28,-54 V14 Z" fill="none" stroke="var(--amber)" stroke-width="3"/>
+          <text x="350" y="285" text-anchor="middle" fill="white" font-weight="900" font-size="15">DVSA</text>
+          <text x="350" y="303" text-anchor="middle" fill="white" font-weight="900" font-size="15">APPROVED</text>
         </svg>
       </div>
     </div>
@@ -451,32 +514,37 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 </section>
 
 <!-- ================= LANGUAGES ================= -->
-<section id="languages" class="py-20 sm:py-28">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center">
+<section id="languages" class="py-20 sm:py-28 relative overflow-hidden" style="background:linear-gradient(120deg, #0B3D91 0%, #1B5FE0 45%, #0F8A4C 100%)">
+  <div class="absolute -top-24 -left-20 w-72 h-72 rounded-full opacity-30 blur-3xl" style="background:var(--bright-green)" aria-hidden="true"></div>
+  <div class="absolute -bottom-28 -right-16 w-80 h-80 rounded-full opacity-25 blur-3xl" style="background:var(--amber)" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_0.9fr] gap-12 items-center relative z-10">
     <div>
-      <span class="font-bold text-sm tracking-wide" style="color:var(--pass-green)">LESSONS IN YOUR LANGUAGE</span>
-      <h2 class="font-display text-3xl sm:text-4xl mt-2" style="font-weight:900;">Learn in whichever language is easiest for you</h2>
-      <p class="mt-4 text-slate-600 max-w-md">Nerves are hard enough without a language barrier on top. Our instructors teach in five languages, so instructions make sense the first time.</p>
-      <div class="flex flex-wrap gap-2.5 mt-6">
-        <span class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-semibold"><svg width="14" height="14" fill="none" stroke="var(--route-blue)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>English</span>
-        <span class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-semibold"><svg width="14" height="14" fill="none" stroke="var(--route-blue)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>German</span>
-        <span class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-semibold"><svg width="14" height="14" fill="none" stroke="var(--route-blue)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Hindi</span>
-        <span class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-semibold"><svg width="14" height="14" fill="none" stroke="var(--route-blue)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Urdu</span>
-        <span class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-semibold"><svg width="14" height="14" fill="none" stroke="var(--route-blue)" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Punjabi</span>
+      <span class="font-bold text-sm tracking-wide text-white/80">LESSONS IN YOUR LANGUAGE</span>
+      <h2 class="font-display text-3xl sm:text-4xl mt-2 text-white" style="font-weight:900;">Learn in whichever language is easiest for you</h2>
+      <p class="mt-4 text-white/85 max-w-md">Nerves are hard enough without a language barrier on top. Our instructors teach in five languages, so instructions make sense the first time.</p>
+
+      <div class="flex flex-wrap gap-3 mt-8">
+        <span class="lang-chip flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold shadow-lg" style="background:#ffffff; color:var(--route-blue); transform:rotate(-3deg)">🇬🇧 English</span>
+        <span class="lang-chip flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold shadow-lg" style="background:var(--bright-green); color:white; transform:rotate(2deg)">🇩🇪 German</span>
+        <span class="lang-chip flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold shadow-lg" style="background:var(--amber); color:var(--ink); transform:rotate(-2deg)">🇮🇳 Hindi</span>
+        <span class="lang-chip flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold shadow-lg" style="background:#ffffff; color:var(--pass-green); transform:rotate(3deg)">🇵🇰 Urdu</span>
+        <span class="lang-chip flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-bold shadow-lg" style="background:var(--ink); color:white; transform:rotate(-1deg)">ਪ Punjabi</span>
       </div>
-      <p class="mt-5 text-sm text-slate-500">Let us know your preferred language on the booking form and we'll match you with the right instructor.</p>
+      <p class="mt-6 text-sm text-white/70">Let us know your preferred language on the booking form and we'll match you with the right instructor.</p>
     </div>
-    <div class="rounded-3xl bg-[var(--mist)] p-6" aria-hidden="true">
-      <svg viewBox="0 0 640 260" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="320" cy="130" r="70" fill="none" stroke="#0B3D91" stroke-width="3" opacity="0.35"/>
-        <ellipse cx="320" cy="130" rx="70" ry="26" fill="none" stroke="#0B3D91" stroke-width="2" opacity="0.3"/>
-        <line x1="320" y1="60" x2="320" y2="200" stroke="#0B3D91" stroke-width="2" opacity="0.3"/>
-        <g><rect x="40" y="40" width="120" height="54" rx="16" fill="#0B3D91"/><path d="M60,94 l-14,18 0,-18 z" fill="#0B3D91"/><text x="100" y="73" text-anchor="middle" fill="white" font-family="Arial" font-weight="800" font-size="18">English</text></g>
-        <g><rect x="490" y="30" width="110" height="54" rx="16" fill="#167F3D"/><path d="M580,84 l16,16 0,-16 z" fill="#167F3D"/><text x="545" y="63" text-anchor="middle" fill="white" font-family="Arial" font-weight="800" font-size="18">German</text></g>
-        <g><rect x="30" y="160" width="105" height="54" rx="16" fill="#1B5FE0"/><path d="M70,214 l-16,16 0,-16 z" fill="#1B5FE0"/><text x="82" y="193" text-anchor="middle" fill="white" font-family="Arial" font-weight="800" font-size="18">Hindi</text></g>
-        <g><rect x="480" y="165" width="105" height="54" rx="16" fill="#E0A100"/><path d="M560,219 l16,14 0,-16 z" fill="#E0A100"/><text x="532" y="198" text-anchor="middle" fill="#0E1A2B" font-family="Arial" font-weight="800" font-size="18">Urdu</text></g>
-        <g><rect x="245" y="10" width="140" height="54" rx="16" fill="#0E1A2B"/><path d="M300,64 l14,16 0,-16 z" fill="#0E1A2B"/><text x="315" y="43" text-anchor="middle" fill="white" font-family="Arial" font-weight="800" font-size="18">Punjabi</text></g>
+
+    <div class="relative flex items-center justify-center" aria-hidden="true">
+      <svg viewBox="0 0 400 400" class="w-full max-w-[380px] h-auto lang-ring">
+        <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 10"/>
+        <circle cx="200" cy="200" r="110" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="2 8"/>
       </svg>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="glass-card rounded-full w-32 h-32 sm:w-40 sm:h-40 flex flex-col items-center justify-center text-center">
+          <span class="text-3xl sm:text-4xl font-display text-white" style="font-weight:900;">5</span>
+          <span class="text-[10px] sm:text-xs font-bold text-white/80 tracking-wide">LANGUAGES</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -548,14 +616,14 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     <h2 class="font-display text-3xl sm:text-4xl mt-2" style="font-weight:900;">Serving Tolworth and a 6-mile radius</h2>
     <p class="mt-3 text-slate-600 max-w-2xl">Test prep centred on the Tolworth and Morden test centres, including the A3 Kingston Bypass and the busier local roundabouts.</p>
     <div class="flex flex-wrap gap-2.5 mt-8">
-      <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Tolworth</span>
-      <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Surbiton</span>
+      <a href="tolworth.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">Tolworth</a>
+      <a href="surbiton.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">Surbiton</a>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Chessington</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Worcester Park</span>
-      <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Kingston upon Thames</span>
+      <a href="kingston-upon-thames.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">Kingston upon Thames</a>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Berrylands</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Hook</span>
-      <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">New Malden</span>
+      <a href="new-malden.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">New Malden</a>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Norbiton</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Raynes Park</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Wimbledon</span>
@@ -563,9 +631,18 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Claygate</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Hersham</span>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Epsom</span>
-      <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Morden</span>
+      <a href="morden.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">Morden</a>
       <span class="bg-white text-sm font-medium px-4 py-2 rounded-full">Sutton</span>
+      <a href="putney.html" class="bg-white text-sm font-bold px-4 py-2 rounded-full hover:text-white transition" style="color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--route-blue)'">Putney</a>
       <a href="#" class="text-sm font-bold px-4 py-2 rounded-full border-2 hover:text-white transition" style="color:var(--route-blue); border-color:var(--route-blue)" onmouseover="this.style.background='var(--route-blue)'" onmouseout="this.style.background='transparent'">View all areas &rarr;</a>
+    </div>
+
+    <div class="mt-10 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+      <iframe
+        src="https://maps.google.com/maps?q=Kings%20Driving%20Centre%2C%20St%20Philip%27s%20Rd%2C%20Surbiton%20KT6%204DU&output=embed"
+        width="100%" height="340" style="border:0; display:block;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing Kings Driving Centre, St Philip's Rd, Surbiton KT6 4DU"></iframe>
     </div>
   </div>
 </section>
@@ -658,12 +735,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         <input id="bf-phone" name="phone" required class="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[var(--route-blue)]" type="tel">
       </div>
       <div>
-        <label class="block text-xs font-bold text-slate-500 mb-1.5" for="bf-address">Pick-up address</label>
-        <input id="bf-address" name="pickup_address" class="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[var(--route-blue)]" type="text">
-      </div>
-      <div>
         <label class="block text-xs font-bold text-slate-500 mb-1.5" for="bf-postcode">Pick-up postcode</label>
-        <input id="bf-postcode" name="pickup_postcode" class="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[var(--route-blue)]" type="text">
+        <input id="bf-postcode" name="pickup_postcode" required class="w-full border border-slate-200 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-[var(--route-blue)]" type="text">
       </div>
       <div>
         <label class="block text-xs font-bold text-slate-500 mb-1.5" for="bf-course">Course</label>
@@ -759,6 +832,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
       <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
       <ul class="space-y-2 text-sm">
         <li><a href="#courses" class="hover:text-white">Courses &amp; Prices</a></li>
+        <li><a href="resources.html" class="hover:text-white">Learner Resources</a></li>
         <li><a href="#why" class="hover:text-white">Why Us</a></li>
         <li><a href="#gallery" class="hover:text-white">Gallery</a></li>
         <li><a href="#languages" class="hover:text-white">Languages</a></li>
@@ -770,11 +844,17 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     <div>
       <h4 class="text-white font-semibold text-sm mb-3">Legal</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="https://kingsdrivingcentre.co.uk/terms-conditions-2/" target="_blank" rel="noopener" class="hover:text-white">Terms &amp; Conditions</a></li>
-        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-white">Cancellation Policy</a></li>
-        <li><a href="#" class="hover:text-white">Booking Terms</a></li>
-        <li><a href="#" class="hover:text-white">Complaints Procedure</a></li>
+        <li><a href="terms-conditions.html" class="hover:text-white">Terms &amp; Conditions</a></li>
+        <li><a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="cookie-policy.html" class="hover:text-white">Cookie Policy</a></li>
+        <li><a href="cancellation-policy.html" class="hover:text-white">Cancellation Policy</a></li>
+        <li><a href="refund-policy.html" class="hover:text-white">Refund Policy</a></li>
+        <li><a href="payment-policy.html" class="hover:text-white">Payment Policy</a></li>
+        <li><a href="booking-terms.html" class="hover:text-white">Booking Terms</a></li>
+        <li><a href="gdpr-policy.html" class="hover:text-white">GDPR Policy</a></li>
+        <li><a href="accessibility-statement.html" class="hover:text-white">Accessibility Statement</a></li>
+        <li><a href="website-disclaimer.html" class="hover:text-white">Website Disclaimer</a></li>
+        <li><a href="complaints-procedure.html" class="hover:text-white">Complaints Procedure</a></li>
       </ul>
     </div>
     <div>
@@ -901,7 +981,11 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   var DEFAULTS = {
     prices: { p10: 741, p15: 1016, p20: 1251, p30: 1862 },
     gallery: [
-      { img: 'hero-photo-optimized.jpg', caption: 'Fresh pass, big smile' },
+      { img: 'gallery-1-man-pass.jpg', caption: 'Straight off the test centre steps' },
+      { img: 'gallery-2-woman-pass.jpg', caption: 'All smiles, test complete' },
+      { img: 'gallery-3-morden-2minors.jpg', caption: '' },
+      { img: 'gallery-4-woman-cert.jpg', caption: 'Reading the good news' },
+      { img: 'gallery-5-morden-3minors.jpg', caption: '' },
       { img: '', caption: '' },
       { img: '', caption: '' },
       { img: '', caption: '' }
@@ -964,7 +1048,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   }
 
   /* ---------- admin: login ---------- */
-  var ADMIN_PASSWORD = 'ChangeThisPassword123'; // placeholder only - not real security, see comment above
+  var ADMIN_PASSWORD = 'Haroon'; // placeholder only - not real security, see comment above
   var loginModal = document.getElementById('loginModal'), adminModal = document.getElementById('adminModal');
   var staffBtn = document.getElementById('staffLoginBtn');
   if(staffBtn) staffBtn.addEventListener('click', function(){ loginModal.classList.remove('hidden'); });
@@ -1057,5 +1141,6 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 })();
 </script>
 
+<script src="consent.js"></script>
 </body>
 </html>
