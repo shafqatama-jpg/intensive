@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Scaffold sitemap for the planned site structure.
+  Only the homepage (/) exists as a built file today — the rest are placeholders
+  for pages to add as they're built. Remove any URL below until its page is live;
+  submitting not-yet-built URLs to Search Console will just generate 404s.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+
+  <!-- Core pages -->
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/intensive-courses</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/course-packages</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/prices</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/urgent-test-cover</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas-covered</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/driving-test-routes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/reviews</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/book-online</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/blog</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- Area landing pages -->
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/tolworth</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/surbiton</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/chessington</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/worcester-park</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/kingston-upon-thames</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/berrylands</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/hook</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/new-malden</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/malden-manor</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/norbiton</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/motspur-park</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/raynes-park</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/wimbledon</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/south-wimbledon</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/thames-ditton</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/long-ditton</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/claygate</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/esher</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/ewell</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/epsom</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/stoneleigh</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/north-cheam</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/morden</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/areas/sutton</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Legal -->
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/cookie-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/terms-and-conditions</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/cancellation-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/refund-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/payment-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/booking-terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/gdpr-policy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/accessibility-statement</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/website-disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/complaints-procedure</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+</urlset>

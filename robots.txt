@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/sitemap.xml
