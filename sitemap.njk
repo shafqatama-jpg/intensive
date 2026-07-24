@@ -1,21 +1,17 @@
+---
+permalink: sitemap.xml
+---
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  This sitemap lists only pages that actually exist right now, so it's safe to submit to
-  Search Console today without generating 404s. A list of planned-but-not-yet-built pages
-  from the original site plan is kept as a comment at the bottom for reference.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/index.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/resources.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Blog -->
   <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/blog.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/morden-first-time-passes.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/tolworth-test-routes.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/manual-or-automatic.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/how-many-lessons-do-you-need.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/show-me-tell-me-questions.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- Blog posts — generated automatically from every file in _posts -->
+  {%- for post in collections.posts %}
+  <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/{{ post.data.permalink }}</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  {%- endfor %}
 
   <!-- Area landing pages -->
   <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/tolworth.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -39,13 +35,3 @@
   <url><loc>https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/complaints-procedure.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
 </urlset>
-
-<!--
-  PLANNED, NOT YET BUILT (add as real <url> entries once each page exists):
-  About, Intensive Courses (standalone), Course Packages (standalone), Prices (standalone),
-  Urgent Test Cover (standalone), Driving Test Routes, FAQ (standalone), Reviews (standalone),
-  Contact (standalone), Book Online (standalone), Blog + posts.
-  Remaining area pages: Chessington, Worcester Park, Kingston upon Thames, Berrylands, Hook,
-  New Malden, Malden Manor, Norbiton, Motspur Park, Raynes Park, Wimbledon, South Wimbledon,
-  Thames Ditton, Long Ditton, Claygate, Esher, Ewell, Epsom, Stoneleigh, North Cheam, Sutton.
--->

@@ -17,3 +17,5 @@ body{font-family:'Inter',sans-serif; background:var(--sign-white); color:var(--i
 .legal-content ul li{margin-bottom:0.35rem;}
 .legal-content a{color:var(--route-blue); text-decoration:underline;}
 .legal-content strong{color:var(--ink);}
+.blog-card{ transition: transform .2s ease, box-shadow .2s ease; }
+.blog-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px -16px rgba(11,61,145,0.3); }

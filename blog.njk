@@ -1,0 +1,89 @@
+---
+permalink: blog.html
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Kings Driving Centre — Tolworth Intensive Driving Courses</title>
+<meta name="description" content="Driving test tips, local test route guides, learner advice and recent pass stories from Kings Driving Centre, Tolworth.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0B3D91">
+<link rel="canonical" href="https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/blog.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>.hero-gradient{ background: radial-gradient(120% 140% at 8% 0%, #14915F 0%, #0F6B49 32%, #0B3D91 78%, #082347 100%); }</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Kings Driving Centre Blog",
+  "url": "https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/blog.html",
+  "blogPost": [
+    {%- for post in collections.posts %}
+    {"@type":"BlogPosting","headline":"{{ post.data.title }}","url":"https://kingsdrivingcentre.co.uk/tolworth-intensive-driving-courses/{{ post.data.permalink }}","datePublished":"{{ post.data.date.toISOString().slice(0,10) }}"}{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="kings-logo-transparent.png" alt="Kings Driving Centre crest" class="h-12 w-auto">
+      <div class="leading-tight">
+        <div class="font-display text-base" style="font-weight:900;">KINGS<span style="color:var(--pass-green)">DRIVING</span></div>
+        <div class="text-[9px] font-bold tracking-[0.14em] text-slate-400 -mt-0.5">TOLWORTH INTENSIVE COURSES</div>
+      </div>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="hidden sm:block text-sm font-bold" style="color:var(--route-blue)">&larr; Back to site</a>
+      <a href="index.html#book" class="text-white text-sm font-bold px-5 py-2.5 rounded-full" style="background:var(--pass-green)">Book Online</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero-gradient py-14 sm:py-20">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center">
+    <span class="text-white/70 font-bold text-sm tracking-wide">THE BLOG</span>
+    <h1 class="font-display text-white text-3xl sm:text-5xl mt-2" style="font-weight:900;">Test tips, local routes &amp; recent passes</h1>
+    <p class="text-white/85 mt-4 max-w-2xl mx-auto">Real learner outcomes, practical advice, and everything we know about the Tolworth and Morden test centres.</p>
+  </div>
+</section>
+
+<main class="max-w-5xl mx-auto px-5 sm:px-8 py-14">
+  <div class="grid sm:grid-cols-2 gap-6">
+    {%- for post in collections.posts %}
+    <a href="{{ post.data.permalink }}" class="blog-card block bg-white rounded-2xl border border-slate-200 overflow-hidden">
+      {% if post.data.image %}
+      <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="w-full h-44 object-cover" loading="lazy">
+      {% else %}
+      <div class="w-full h-44" style="background:linear-gradient(135deg, var(--route-blue), var(--pass-green))"></div>
+      {% endif %}
+      <div class="p-6">
+        <span class="text-xs font-bold tracking-wide" style="color:var(--pass-green)">{{ post.data.category }}</span>
+        <h2 class="font-display text-lg mt-1.5" style="font-weight:800;">{{ post.data.title }}</h2>
+        <p class="text-sm text-slate-500 mt-2">{{ post.data.description }}</p>
+        <p class="text-xs text-slate-400 mt-4">{{ post.data.dateDisplay }} &middot; {{ post.data.readTime }} min read</p>
+      </div>
+    </a>
+    {%- endfor %}
+  </div>
+</main>
+
+<footer class="pt-10 pb-10 border-t border-slate-100" style="background:var(--mist)">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+    <p class="text-xs text-slate-400">Kings Driving Centre, St Philip's Rd, Surbiton KT6 4DU &middot; 020 3143 1718 &middot; info@kingsdrivingcentre.co.uk</p>
+    <p class="text-xs text-slate-400 mt-1">&copy; 2026 Kings Driving Centre. All rights reserved. &middot; <a href="index.html" class="underline">Back to homepage</a></p>
+  </div>
+</footer>
+<script src="consent.js"></script>
+</body>
+</html>
