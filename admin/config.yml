@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: ""
+public_folder: ""
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template", name: "layout", widget: "hidden", default: "post-layout.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "string", hint: "e.g. RECENT PASSES, LEARNER ADVICE, LOCAL TEST ROUTES, DRIVING TEST TIPS, INTENSIVE COURSES"}
+      - {label: "Date (controls sort order)", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Date (shown on the page)", name: "dateDisplay", widget: "string", hint: "Type it exactly as it should appear, e.g. 18 July 2026"}
+      - {label: "Meta description (for Google)", name: "description", widget: "text", hint: "1-2 sentences, shown in search results"}
+      - {label: "URL filename", name: "permalink", widget: "string", hint: "lowercase-with-hyphens.html — this becomes the page's web address. Don't change it after the post is published, or the old link will break."}
+      - {label: "Read time (minutes)", name: "readTime", widget: "number", default: 4, value_type: "int"}
+      - {label: "Card image (optional)", name: "image", widget: "string", required: false, hint: "Filename of an image already on the site, e.g. gallery-1-man-pass.jpg — leave blank for a plain colour card"}
+      - {label: "Post content", name: "body", widget: "markdown"}
