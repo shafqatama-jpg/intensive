@@ -6,3 +6,8 @@
   from = "/admin/*"
   to = "/admin/:splat"
   status = 200
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
