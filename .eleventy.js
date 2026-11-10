@@ -19,6 +19,7 @@ module.exports = function (eleventyConfig) {
     "putney.html",
     "refund-policy.html",
     "resources.html",
+    "safeguarding-policy.html",
     "surbiton.html",
     "terms-conditions.html",
     "tolworth.html",
