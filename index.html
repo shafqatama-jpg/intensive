@@ -1038,6 +1038,9 @@ var hello = 'Hi ' + g('first_name') + ', this is Kings Driving Centre. Thanks fo
 var out = new FormData();
 out.append('_subject', 'Booking enquiry: ' + name + ' - ' + g('course') + ' - ' + g('pickup_postcode').toUpperCase());
 out.append('Copy for instructor', lines.join('\n'));
+var enc = encodeURIComponent(lines.join('\n')).replace(/[!'()*]/g, function(c){ return '%' + c.charCodeAt(0).toString(16).toUpperCase(); });
+out.append('Send to instructor on WhatsApp', 'https://wa.me/?text=' + enc);
+out.append('Send to instructor by SMS', 'https://tolworthintensivedrivingcourses.co.uk/send.html#' + enc);
 if(intl.length >= 11){
 out.append('Reply on WhatsApp', 'https://wa.me/' + intl + '?text=' + encodeURIComponent(hello));
 out.append('Text or call', '+' + intl);
