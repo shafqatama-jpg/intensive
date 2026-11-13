@@ -1011,6 +1011,41 @@ var sel = doc.getElementById('bf-course');
 if(sel) sel.value = a.getAttribute('data-course');
 });
 });
+function ukPhone(p){
+var d = (p || '').replace(/\D/g, '');
+if(d.indexOf('00') === 0) d = d.slice(2);
+if(d.charAt(0) === '0') d = '44' + d.slice(1);
+return d;
+}
+function buildEnquiry(form){
+var src = new FormData(form), g = function(k){ return (src.get(k) || '').toString().trim(); };
+var name = (g('first_name') + ' ' + g('last_name')).trim(), intl = ukPhone(g('phone'));
+var fmtDate = function(v){ var p = (v || '').split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : v; };
+var testLine = g('test_already_booked') === 'Yes' ? 'Yes' + (g('test_date') ? ', ' + fmtDate(g('test_date')) : ', date not given') : 'No';
+var lines = [
+'NEW LEARNER - ' + g('course'),
+'Name: ' + name,
+'Phone: ' + g('phone'),
+'Pick-up postcode: ' + g('pickup_postcode').toUpperCase(),
+'Gearbox: ' + g('gearbox'),
+'Experience: ' + g('experience'),
+'Language: ' + g('preferred_language'),
+'Test booked: ' + testLine,
+'Preferred start: ' + (fmtDate(g('preferred_start_date')) || 'Not given')
+];
+if(g('notes')) lines.push('Notes: ' + g('notes'));
+var hello = 'Hi ' + g('first_name') + ', this is Kings Driving Centre. Thanks for your enquiry about the ' + g('course') + '.';
+var out = new FormData();
+out.append('_subject', 'Booking enquiry: ' + name + ' - ' + g('course') + ' - ' + g('pickup_postcode').toUpperCase());
+out.append('Copy for instructor', lines.join('\n'));
+if(intl.length >= 11){
+out.append('Reply on WhatsApp', 'https://wa.me/' + intl + '?text=' + encodeURIComponent(hello));
+out.append('Text or call', '+' + intl);
+}
+out.append('Reply by email', g('email'));
+src.forEach(function(v, k){ if(k !== '_subject') out.append(k, v); });
+return out;
+}
 var form = doc.getElementById('bookingForm');
 if(form){
 form.addEventListener('submit', async function(e){
@@ -1021,7 +1056,7 @@ var err = doc.getElementById('bookingError');
 conf.classList.add('hidden'); err.classList.add('hidden');
 sb.disabled = true; sb.textContent = 'Sending...';
 try{
-var res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+var res = await fetch(form.action, { method: 'POST', body: buildEnquiry(form), headers: { 'Accept': 'application/json' } });
 if(res.ok){ form.reset(); conf.classList.remove('hidden'); }
 else { err.classList.remove('hidden'); }
 } catch(networkErr){ err.classList.remove('hidden'); }
